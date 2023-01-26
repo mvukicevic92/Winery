@@ -1,0 +1,17 @@
+package Project.winery.web.dto;
+
+import java.time.LocalDate;
+
+public class WineDTO {
+	
+	private Long id;
+	
+	private String name;
+	
+	private Integer year;
+	
+	private String description;
+	
+	private Double priceForBottle;
+
+}

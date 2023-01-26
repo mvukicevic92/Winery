@@ -1,0 +1,5 @@
+package Project.winery.model;
+
+public class Korisnik {
+
+}

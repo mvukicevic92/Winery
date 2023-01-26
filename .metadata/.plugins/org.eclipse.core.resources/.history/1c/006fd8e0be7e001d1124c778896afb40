@@ -1,0 +1,84 @@
+package Project.winery.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Service;
+
+import Project.winery.model.Wine;
+import Project.winery.repository.WineRepository;
+import Project.winery.service.WineService;
+
+@Service
+public class JpaWineService implements WineService{
+	
+	@Autowired
+	private WineRepository wineRepository;
+
+	@Override
+	public Wine findOne(Long id) {
+		return wineRepository.findOneById(id);
+	}
+
+	@Override
+	public List<Wine> findAll() {
+		return wineRepository.findAll();
+	}
+
+	@Override
+	public Page<Wine> findAll(Integer pageNo) {
+		// TODO Auto-generated method stub
+		return wineRepository.findAll(PageRequest.of(pageNo, 5));
+	}
+
+	@Override
+	public Wine save(Wine wine) {
+		wine.setAvailableBottles(0);
+		return wineRepository.save(wine);
+	}
+
+	@Override
+	public Wine update(Wine wine) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Wine delete(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Wine> findByWineryId(Long wineryId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Wine> findByTypeId(Long typeId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Page<Wine> find(String name, Long wineryId, Integer pageNo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Wine procurement(Integer quantity, Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Wine buy(Integer quantity, Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

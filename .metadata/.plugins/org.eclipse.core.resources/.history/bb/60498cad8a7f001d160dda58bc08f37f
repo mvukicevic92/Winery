@@ -1,0 +1,27 @@
+package Project.winery.web.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import Project.winery.service.WineService;
+import Project.winery.support.WineDtoToWine;
+import Project.winery.support.WineToWineDto;
+
+@RestController
+@RequestMapping(value = "/api/wines", produces = MediaType.APPLICATION_JSON_VALUE)
+public class WineController {
+	
+	@Autowired
+	private WineService wineService;
+	
+	@Autowired
+	private WineToWineDto toWineDto;
+	
+	@Autowired
+	private WineDtoToWine toWine;
+	
+	
+
+}

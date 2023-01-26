@@ -1,0 +1,55 @@
+package Project.winery.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.stereotype.Service;
+
+import Project.winery.model.Winery;
+import Project.winery.repository.WineryRepository;
+import Project.winery.service.WineryService;
+
+@Service
+public class JpaWineryService implements WineryService{
+	
+	@Autowired
+	private WineryRepository wineryRepository;
+
+	@Override
+	public Winery findOne(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Winery> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Page<Winery> findAll(Integer pageNo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Winery save(Winery winery) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Winery update(Winery winery) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Winery delete(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

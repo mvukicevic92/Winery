@@ -1,0 +1,5 @@
+package Project.winery.repository;
+
+public interface WineRepository {
+
+}

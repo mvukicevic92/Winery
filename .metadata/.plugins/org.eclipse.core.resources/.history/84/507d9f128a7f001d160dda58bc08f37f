@@ -1,0 +1,25 @@
+package Project.winery.web.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import Project.winery.service.WineryService;
+import Project.winery.support.WineryToWineryDto;
+
+@RestController
+@RequestMapping(value = "/api/wineries", produces = MediaType.APPLICATION_JSON_VALUE)
+public class WineryController {
+	
+	@Autowired
+	private WineryService wineryService;
+	
+	@Autowired
+	private WineryToWineryDto toWineryDto;
+	
+	public ResponseEntity<T>
+
+}

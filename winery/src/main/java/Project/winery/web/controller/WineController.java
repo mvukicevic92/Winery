@@ -1,0 +1,130 @@
+package Project.winery.web.controller;
+
+import java.util.List;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import Project.winery.model.Wine;
+import Project.winery.service.WineService;
+import Project.winery.support.WineDtoToWine;
+import Project.winery.support.WineToWineDto;
+import Project.winery.web.dto.OrderPurchaseDTO;
+import Project.winery.web.dto.WineDTO;
+
+@RestController
+@RequestMapping(value = "/api/wines", produces = MediaType.APPLICATION_JSON_VALUE)
+public class WineController {
+	
+	@Autowired
+	private WineService wineService;
+	
+	@Autowired
+	private WineToWineDto toWineDto;
+	
+	@Autowired
+	private WineDtoToWine toWine;
+	
+	@GetMapping
+	public ResponseEntity<List<WineDTO>> getAll(@RequestParam(required = false) String name,
+												@RequestParam(required = false) Long wineryId,
+												@RequestParam(value = "pageNo", defaultValue = "0") Integer pageNo){
+		
+		Page<Wine> page;
+		try {
+			page = wineService.find(name, wineryId, pageNo);
+		}catch (Exception e) {
+			page = wineService.findAll(pageNo);
+		}
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Total-Pages", Integer.toString(page.getTotalPages()));
+		
+		return new ResponseEntity<>(toWineDto.convert(page.getContent()), headers, HttpStatus.OK);
+	}
+	
+	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<WineDTO> create(@Valid @RequestBody WineDTO wineDto){
+		Wine wine = toWine.convert(wineDto);
+		
+		if(wine.getWinery() == null) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		
+		Wine savedWine = wineService.save(wine);
+		return new ResponseEntity<>(toWineDto.convert(savedWine), HttpStatus.OK);
+	}
+	
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<WineDTO> getOne(@PathVariable Long id){
+		Wine wine = wineService.findOne(id);
+		
+		if(wine != null) {
+			return new ResponseEntity<>(toWineDto.convert(wine), HttpStatus.OK);
+		}else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<WineDTO> update (@PathVariable Long id, @Valid @RequestBody WineDTO wineDto){
+		if(!id.equals(wineDto.getId())) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		
+		Wine wine = toWine.convert(wineDto);
+		
+		if(wine.getWinery() == null) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		
+		Wine savedWine = wineService.update(wine);
+		return new ResponseEntity<>(toWineDto.convert(savedWine), HttpStatus.OK);
+	}
+	
+	@DeleteMapping(value = "/{id}")
+	public ResponseEntity<WineDTO> delete (@PathVariable Long id){
+		Wine deletedWine = wineService.delete(id);
+		
+		if(deletedWine == null) {
+			return new ResponseEntity<>(toWineDto.convert(deletedWine), HttpStatus.NO_CONTENT);
+		}else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@PostMapping(value = "/order", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<WineDTO> order(@Valid @RequestBody OrderPurchaseDTO orderDto){
+		
+		
+		Wine wine = wineService.order(orderDto.getQuantity() ,orderDto.getId());
+		
+		return new ResponseEntity<>(toWineDto.convert(wine), HttpStatus.OK);
+	}
+	
+	@PostMapping(value = "/purchase", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<WineDTO> purchase(@Valid @RequestBody OrderPurchaseDTO purchaseDto){
+		
+		
+		Wine wine = wineService.purchase(purchaseDto.getQuantity(), purchaseDto.getId());
+		
+		return new ResponseEntity<>(toWineDto.convert(wine), HttpStatus.OK);
+	}
+	
+
+}

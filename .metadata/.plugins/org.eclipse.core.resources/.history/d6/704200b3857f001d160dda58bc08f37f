@@ -1,0 +1,21 @@
+package Project.winery.support;
+
+import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
+
+import Project.winery.model.Wine;
+import Project.winery.web.dto.WineDTO;
+
+@Component
+public class WineToWineDto implements Converter<Wine, WineDTO>{
+
+	@Override
+	public WineDTO convert(Wine wine) {
+		WineDTO dto = new WineDTO();
+		dto.setId(wine.getId());
+		dto.setName(wine.getName());
+		dto.setYear(wine.getYear()); // konverter
+		return null;
+	}
+
+}

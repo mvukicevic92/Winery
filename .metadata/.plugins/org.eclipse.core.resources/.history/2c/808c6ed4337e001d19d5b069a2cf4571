@@ -1,0 +1,5 @@
+package Project.winery.service;
+
+public interface KorisnikService {
+
+}

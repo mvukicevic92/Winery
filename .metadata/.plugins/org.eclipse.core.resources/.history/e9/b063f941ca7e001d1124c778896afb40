@@ -1,0 +1,15 @@
+package Project.winery.web.dto;
+
+public class WineryDTO {
+	
+	private Long id;
+	
+	private String name;
+	
+	private Integer quantity;
+	
+	private Integer yearOfEstablishment;
+	
+	
+
+}

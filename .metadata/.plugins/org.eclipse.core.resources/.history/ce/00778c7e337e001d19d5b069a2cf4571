@@ -1,0 +1,5 @@
+package Project.winery.security;
+
+public class SecurityConfiguration {
+
+}

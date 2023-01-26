@@ -1,0 +1,35 @@
+package Project.winery.support;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
+
+import Project.winery.model.Winery;
+import Project.winery.web.dto.WineryDTO;
+
+@Component
+public class WineryToWineryDto implements Converter<Winery, WineryDTO>{
+
+	@Override
+	public WineryDTO convert(Winery winery) {
+		WineryDTO dto = new WineryDTO();
+		
+		dto.setId(winery.getId());
+		dto.setName(winery.getName());
+		dto.setYearOfEstablishment(winery.getYearOfEstablishment());
+		dto.setQuantity(winery.getQuantity());
+		return dto;
+	}
+	
+	public List<WineryDTO> convert (List<Winery> wineries){
+		List<WineryDTO> dto = new ArrayList<>();
+		
+		for(Winery winery : wineries) {
+			dto.add(convert(winery));
+		}
+		return dto;
+	}
+
+}

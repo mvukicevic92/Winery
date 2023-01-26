@@ -1,0 +1,152 @@
+package Project.winery.model;
+
+import java.util.Objects;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
+public class Wine {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@Column(nullable = false, unique = true)
+	private String name;
+	
+	@Column
+	private Integer year;
+	
+	@Column
+	private String description;
+	
+	@Column
+	private Double priceForBottle;
+	
+	@Column
+	private Integer availableBottles;
+	
+	@ManyToOne
+	private Type type;
+	
+	@ManyToOne
+	private Winery winery;
+
+	public Wine() {
+		super();
+	}
+
+	public Wine(String name, Integer year, String description, Double priceForBottle, Integer availableBottles,
+			Type type, Winery winery) {
+		super();
+		this.name = name;
+		this.year = year;
+		this.description = description;
+		this.priceForBottle = priceForBottle;
+		this.availableBottles = availableBottles;
+		this.type = type;
+		this.winery = winery;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Integer getYear() {
+		return year;
+	}
+
+	public void setYear(Integer year) {
+		this.year = year;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Double getPriceForBottle() {
+		return priceForBottle;
+	}
+
+	public void setPriceForBottle(Double priceForBottle) {
+		this.priceForBottle = priceForBottle;
+	}
+
+	public Integer getAvailableBottles() {
+		return availableBottles;
+	}
+
+	public void setAvailableBottles(Integer availableBottles) {
+		this.availableBottles = availableBottles;
+	}
+
+	public Type getType() {
+		return type;
+	}
+
+	public void setType(Type type) {
+		this.type = type;
+		if(type != null && !type.getWines().contains(this)) {
+			type.getWines().add(this);
+		}
+	}
+
+	public Winery getWinery() {
+		return winery;
+	}
+
+	public void setWinery(Winery winery) {
+		this.winery = winery;
+		if(winery != null && !winery.getWines().contains(this)) {
+			winery.getWines().add(this);
+		}
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Wine other = (Wine) obj;
+		return Objects.equals(id, other.id);
+	}
+
+	@Override
+	public String toString() {
+		return "Wine [id=" + id + ", name=" + name + ", year=" + year + ", description=" + description
+				+ ", priceForBottle=" + priceForBottle + ", availableBottles=" + availableBottles + ", type=" + type.getName()
+				+ ", winery=" + winery.getName() + "]";
+	}
+	
+	
+
+}

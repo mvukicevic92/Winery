@@ -1,0 +1,40 @@
+package Project.winery.web.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import Project.winery.service.WineService;
+import Project.winery.support.WineDtoToWine;
+import Project.winery.support.WineToWineDto;
+import Project.winery.web.dto.WineDTO;
+
+@RestController
+@RequestMapping(value = "/api/wines", produces = MediaType.APPLICATION_JSON_VALUE)
+public class WineController {
+	
+	@Autowired
+	private WineService wineService;
+	
+	@Autowired
+	private WineToWineDto toWineDto;
+	
+	@Autowired
+	private WineDtoToWine toWine;
+	
+	public ResponseEntity<List<WineDTO>> getAll(@RequestParam(required = false) String name,
+												@RequestParam(required = false) Long wineryId,
+												@RequestParam(value = "pageNo", defaultValue = "0") Integer pageNo){
+		
+		
+		
+		
+		return null;
+	}
+
+}

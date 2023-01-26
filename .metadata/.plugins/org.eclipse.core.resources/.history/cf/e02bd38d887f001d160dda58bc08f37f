@@ -1,0 +1,9 @@
+package Project.winery.support;
+
+import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
+
+@Component
+public class TypeDtoToType implements Converter<TypeDTO, Type>{
+
+}

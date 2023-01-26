@@ -1,0 +1,7 @@
+package Project.winery.dto;
+
+public class KorisnikRegistracijaDto extends KorisnikDTO{
+	
+	
+
+}

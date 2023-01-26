@@ -1,0 +1,18 @@
+package Project.winery.support;
+
+import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
+
+import Project.winery.model.Winery;
+import Project.winery.web.dto.WineryDTO;
+
+@Component
+public class WineryToWineryDto implements Converter<Winery, WineryDTO>{
+
+	@Override
+	public WineryDTO convert(Winery winery) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

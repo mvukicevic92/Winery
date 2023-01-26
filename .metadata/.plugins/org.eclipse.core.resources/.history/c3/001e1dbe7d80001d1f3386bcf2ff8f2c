@@ -1,0 +1,11 @@
+package Project.winery.web.dto;
+
+public class OrderPurchaseDTO {
+	
+	private Long id;
+	
+	private Integer qunatity;
+	
+	
+
+}

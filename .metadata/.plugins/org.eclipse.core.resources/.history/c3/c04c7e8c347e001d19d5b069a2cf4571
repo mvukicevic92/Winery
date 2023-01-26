@@ -1,0 +1,5 @@
+package Project.winery.dto;
+
+public class KorisnikRegistracijaDto {
+
+}

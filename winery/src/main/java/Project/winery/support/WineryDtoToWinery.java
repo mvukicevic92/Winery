@@ -1,0 +1,35 @@
+package Project.winery.support;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
+
+import Project.winery.model.Winery;
+import Project.winery.service.WineryService;
+import Project.winery.web.dto.WineryDTO;
+
+@Component
+public class WineryDtoToWinery implements Converter<WineryDTO, Winery>{
+	
+	@Autowired
+	private WineryService wineryService;
+
+	@Override
+	public Winery convert(WineryDTO dto) {
+		Winery winery = new Winery();
+		
+		if(dto.getId() == null) {
+			winery = new Winery();
+		}else {
+			winery = wineryService.findOne(dto.getId());
+		}
+		
+		if(winery != null) {
+			winery.setName(dto.getName());
+			winery.setYearOfEstablishment(dto.getYearOfEstablishment());
+			winery.setQuantity(dto.getQuantity());
+		}
+		return winery;
+	}
+
+}

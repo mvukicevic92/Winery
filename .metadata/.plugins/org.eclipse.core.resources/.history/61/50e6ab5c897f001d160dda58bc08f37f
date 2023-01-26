@@ -1,0 +1,28 @@
+package Project.winery.web.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import Project.winery.service.TypeService;
+import Project.winery.support.TypeToTypeDto;
+
+@RestController
+@RequestMapping(value = "/api/types", produces = MediaType.APPLICATION_JSON_VALUE)
+public class TypeController {
+	
+	@Autowired
+	private TypeService typeService;
+	
+	@Autowired
+	private TypeToTypeDto toTypeDto;
+	
+	public ResponseEntity<List<TypeDTO>> getAll(){
+		
+	}
+
+}

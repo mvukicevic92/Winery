@@ -1,0 +1,5 @@
+package Project.winery.web.dto;
+
+public class WineryDTO {
+
+}

@@ -1,0 +1,40 @@
+INSERT INTO korisnik (id, e_mail, korisnicko_ime, lozinka, ime, prezime, uloga)
+              VALUES (1,'miroslav@maildrop.cc','miroslav','$2y$12$NH2KM2BJaBl.ik90Z1YqAOjoPgSd0ns/bF.7WedMxZ54OhWQNNnh6','Miroslav','Simic','ADMIN');
+INSERT INTO korisnik (id, e_mail, korisnicko_ime, lozinka, ime, prezime, uloga)
+              VALUES (2,'tamara@maildrop.cc','tamara','$2y$12$DRhCpltZygkA7EZ2WeWIbewWBjLE0KYiUO.tHDUaJNMpsHxXEw9Ky','Tamara','Milosavljevic','KORISNIK');
+INSERT INTO korisnik (id, e_mail, korisnicko_ime, lozinka, ime, prezime, uloga)
+              VALUES (3,'petar@maildrop.cc','petar','$2y$12$i6/mU4w0HhG8RQRXHjNCa.tG2OwGSVXb0GYUnf8MZUdeadE4voHbC','Petar','Jovic','KORISNIK');
+              
+INSERT INTO type (id, name) VALUES (1, "Sweet red");
+INSERT INTO type (id, name) VALUES (2, "Dry red");
+INSERT INTO type (id, name) VALUES (3, "Fruity dry red");
+INSERT INTO type (id, name) VALUES (4, "Dry white");
+INSERT INTO type (id, name) VALUES (5, "Sweet white");
+INSERT INTO type (id, name) VALUES (6, "Dry rose");
+INSERT INTO type (id, name) VALUES (7, "Off-dry rose");
+INSERT INTO type (id, name) VALUES (8, "Sparkling white wine");
+INSERT INTO type (id, name) VALUES (9, "Sparkling red wine");
+INSERT INTO type (id, name) VALUES (10, "Sparkling rose wine");
+
+INSERT INTO winery (id, name, quantity, year_of_establishment) VALUES (1, "Winery Kovacevic", 173, 1976);
+INSERT INTO winery (id, name, quantity, year_of_establishment) VALUES (2, "Winery Bononia-Sijacki", 134, 1981);
+INSERT INTO winery (id, name, quantity, year_of_establishment) VALUES (3, "Winery Salaxia", 311, 1980);
+INSERT INTO winery (id, name, quantity, year_of_establishment) VALUES (4, "Winery Vinum", 98, 1954);
+INSERT INTO winery (id, name, quantity, year_of_establishment) VALUES (5, "Winery Dosen", 254, 1989);
+INSERT INTO winery (id, name, quantity, year_of_establishment) VALUES (6, "Winery Acanski", 280, 1945);
+INSERT INTO winery (id, name, quantity, year_of_establishment) VALUES (7, "Winery Veritas", 428, 2004);
+INSERT INTO winery (id, name, quantity, year_of_establishment) VALUES (8, "Winery Zvonko Bogdan", 303, 1993);
+
+INSERT INTO wine (id, name, year, description, price_for_bottle, available_bottles, type_id, winery_id) VALUES (1, "Chardonnay", 1998, "White", 2500.0, 139, 4, 7);
+INSERT INTO wine (id, name, year, description, price_for_bottle, available_bottles, type_id, winery_id) VALUES (2, "Chenet", 1992, "White wine Chenet Medium sweet 0,75l", 2800.0, 177, 5, 2);
+INSERT INTO wine (id, name, year, description, price_for_bottle, available_bottles, type_id, winery_id) VALUES (3, "Chardonnay & Pinot grigio", 2001, "Red wine Chardonnay & Pinot grigio 0,75l", 1900.0, 214, 3, 3);
+INSERT INTO wine (id, name, year, description, price_for_bottle, available_bottles, type_id, winery_id) VALUES (4, "Orfelin", 1994, "White wine Kovacevic Orfelin 750ml", 2350.0, 289, 8, 1);
+INSERT INTO wine (id, name, year, description, price_for_bottle, available_bottles, type_id, winery_id) VALUES (5, "Vinum", 2007, "Rose wine Sauvignon 0,75l", 1500.0, 36, 6, 4);
+INSERT INTO wine (id, name, year, description, price_for_bottle, available_bottles, type_id, winery_id) VALUES (6, "Zvonko Bogdan Pinot", 2005, "Sparkling wine Pinot blanc 750ml", 1590.0, 1004, 10, 8);
+INSERT INTO wine (id, name, year, description, price_for_bottle, available_bottles, type_id, winery_id) VALUES (7, "Sauvignon blanc", 1989, "White wine Sauvignon blanc 750ml", 6700.0, 124, 1, 2);
+INSERT INTO wine (id, name, year, description, price_for_bottle, available_bottles, type_id, winery_id) VALUES (8, "Veritas Pinot", 1990, "Red wine Pinot noir 0,75l", 3200.0, 418, 2, 7);
+INSERT INTO wine (id, name, year, description, price_for_bottle, available_bottles, type_id, winery_id) VALUES (9, "Dosen Merlot", 1991, "Red wine Merlot 0,75l", 4090.0, 394, 3, 5);
+INSERT INTO wine (id, name, year, description, price_for_bottle, available_bottles, type_id, winery_id) VALUES (10, "Casillero Acanski", 1985, "Red wine Cabernet sauvignon 750ml", 11500.0, 9, 2, 6);
+INSERT INTO wine (id, name, year, description, price_for_bottle, available_bottles, type_id, winery_id) VALUES (11, "Kovacevic Rose", 1999, "Rose wine CHENET Cabernet Syrah 0,75l", 3590.0, 763, 6, 1);
+INSERT INTO wine (id, name, year, description, price_for_bottle, available_bottles, type_id, winery_id) VALUES (12, "Bononia Rosetto", 1976, "Rose wine Rosetto 0,75l", 18290.0, 97, 7, 2);
+INSERT INTO wine (id, name, year, description, price_for_bottle, available_bottles, type_id, winery_id) VALUES (13, "Champagne Rose", 2012, "Sparkling rose wine Temet 750ml", 1230.0, 476, 10, 8);

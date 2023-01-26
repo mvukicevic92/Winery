@@ -1,0 +1,10 @@
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="org.springframework.data.domain.Pageable"><rhs name\="org.springframework.data.domain.PageRequest"/></lhs><lhs name\="Project.winery.web.dto.WineDTO"><rhs name\="Project.winery.web.dto.WineDTO"/></lhs><lhs name\="Project.winery.model.Wine"><rhs name\="Project.winery.model.Wine"/></lhs><lhs name\="Project.winery.web.dto.WineryDTO"><rhs name\="Project.winery.web.dto.WineryDTO"/></lhs><lhs name\="java.util.Collection"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.lang.Iterable"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.List"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="Project.winery.model.Winery"><rhs name\="Project.winery.model.Winery"/></lhs><lhs name\="Project.winery.web.dto.TypeDTO"><rhs name\="Project.winery.web.dto.TypeDTO"/></lhs><lhs name\="Project.winery.model.Type"><rhs name\="Project.winery.model.Type"/></lhs><lhs name\="org.springframework.http.HttpEntity"><rhs name\="org.springframework.http.ResponseEntity"/></lhs><lhs name\="org.springframework.http.ResponseEntity"><rhs name\="org.springframework.http.ResponseEntity"/></lhs><lhs name\="java.lang.Enum"><rhs name\="org.springframework.http.HttpStatus"/></lhs><lhs name\="java.lang.constant.Constable"><rhs name\="org.springframework.http.HttpStatus"/></lhs><lhs name\="org.springframework.util.MultiValueMap"><rhs name\="org.springframework.http.HttpHeaders"/></lhs><lhs name\="java.util.Map"><rhs name\="org.springframework.http.HttpHeaders"/></lhs><lhs name\="org.springframework.http.HttpHeaders"><rhs name\="org.springframework.http.HttpHeaders"/></lhs></history>
+content_assist_number_of_computers=17
+eclipse.preferences.version=1
+org.eclipse.jdt.internal.ui.navigator.layout=2
+org.eclipse.jdt.internal.ui.navigator.librariesnode=true
+org.eclipse.jdt.ui.formatterprofiles.version=22
+spelling_locale_initialized=true
+typefilter_migrated_2=true
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

@@ -1,0 +1,11 @@
+package Project.winery.web.dto;
+
+public class TypeDTO {
+	
+	private Long id;
+	
+	private String name;
+	
+	
+
+}
